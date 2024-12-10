@@ -2,9 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { guestlist } from "../../../public/guest";
 
-const Home = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
-  const guest = guestlist.find((guest) => id === guest.id);
+type tParams = Promise<{ id: string }>;
+
+export default async function Home(props: { params: tParams }) {
+  const { id } = await props.params;
+  const guestID = id;
+  const guest = guestlist.find((guest) => guestID === guest.id);
 
   const table_no = guest?.table;
 
@@ -183,6 +186,4 @@ const Home = async ({ params }: { params: { id: string } }) => {
       </main>
     </div>
   );
-};
-
-export default Home;
+}
