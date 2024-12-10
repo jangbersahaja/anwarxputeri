@@ -1,101 +1,80 @@
 import Image from "next/image";
+import Link from "next/link";
+import { FaGlobe } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { guestlist } from "../../public/guest";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="w-full">
+      <main className="flex flex-col items-center justify-center py-10 px-5 gap-5">
+        <div className="flex">
+          <Image
+            className=""
+            src="/crest.png"
+            alt="Globe icon"
+            width={150}
+            height={150}
+          />
+        </div>
+        <h1 className="text-2xl font-bold text-gray-900">Guest List</h1>
+        <div className="w-full flex flex-col gap-2">
+          <GuestListGroupedByTable />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
+
+const GuestListGroupedByTable: React.FC = () => {
+  // Group guests by table
+  const groupedGuests = guestlist.reduce<Record<string, typeof guestlist>>(
+    (acc, guest) => {
+      if (!acc[guest.table]) {
+        acc[guest.table] = [];
+      }
+      acc[guest.table].push(guest);
+      return acc;
+    },
+    {}
+  );
+
+  return (
+    <div className="flex flex-col gap-4">
+      {Object.entries(groupedGuests).map(([table, guests]) => (
+        <div
+          key={table}
+          className="p-4 border rounded-lg shadow-md bg-slate-100"
+        >
+          <h2 className="text-lg font-bold mb-2">Table {table}</h2>
+          <div className="pl-5 gap-2 flex flex-col justify-end">
+            {guests.map((guest) => (
+              <div
+                key={guest.id}
+                className="text-gray-700 flex justify-between items-center"
+              >
+                <span>{guest.name}</span>
+                <div className="flex gap-2">
+                  <Link
+                    className="bg-green-700 rounded-md text-white px-2 py-2"
+                    href={`https://api.whatsapp.com/send?phone=6${guest.phone}&text=Assalamualaikum%20dan%20%20Salam%20Sejahtera%0A%0AYAM%20%2F%20YM%20%2F%20Tan%20Sri%20%2F%20Puan%20Sri%20%2F%20Dato%E2%80%99%20Sri%20%2F%20%20Datin%20Sri%20%2F%20Dato%E2%80%99%20%2F%20Datin%20%2F%20Tuan%20%2F%20Puan%0A%0A${guest.name}%0A%0AWe%20would%20like%20to%20send%20a%20gentle%20reminder%20to%20all%20Invitees%0A%0AMajlis%20Perkahwinan%20Muhammad%20Khairul%20Anwar%20Shahrom%20%26%20Puteri%20Nur%20Fatihana%20Rocky%0A%0ADate%3A%2014%20December%202024%20(Saturday)%0ARegistration%20time%3A%20Start%20from%206.30%20p.m.%0ADress%20code%3A%20Baju%20Melayu%2F%20Batik%20%26%20Baju%20Kurung%0AVenue%3A%20Palace%20of%20Golden%20Horses%2C%20Seri%20Kembangan%0A%0ATable%20no%3A%C2%A0${guest.table}%0A%0AThank%C2%A0you%0A%0Ahttps://jdinvite.com/anwar-puteri/`}
+                    target="_blank"
+                  >
+                    <IoLogoWhatsapp />
+                  </Link>
+                  <Link
+                    className="bg-slate-900 rounded-md text-white px-2 py-2"
+                    href={`/${guest.id}`}
+                    target="_blank"
+                  >
+                    <FaGlobe />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
