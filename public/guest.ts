@@ -1,5 +1,5 @@
 export const guestlist = [
-  { id: "0", name: "En Ismail Hashim", phone: "0182187456", table: "44" },
+  { id: "0", name: "En Ismail Hasim", phone: "0182187456", table: "44" },
   { id: "1", name: "Faisal Ahmad", phone: "0182187457", table: "45" },
   { id: "2", name: "Mahmoud Al-Mahmood", phone: "0182187458", table: "46" },
   { id: "3", name: "Mohammad Abdullah", phone: "0182187459", table: "22" },
