@@ -298,7 +298,7 @@ const TableNumber = ({ table_no }: { table_no?: string }) => (
           </div>
         ) : (
           <div className="text-xs">
-            <p>LEFT WING</p>
+            <p>RIGHT WING</p>
           </div>
         )}
       </div>
