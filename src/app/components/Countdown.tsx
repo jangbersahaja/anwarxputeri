@@ -8,7 +8,7 @@ export default function Countdown() {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const countingDate = new Date("2024-12-14T20:00:00Z");
+  const countingDate = new Date("2024-12-14T12:00:00Z");
 
   useEffect(() => {
     const target = toZonedTime(countingDate, "Asia/Kuala_Lumpur");

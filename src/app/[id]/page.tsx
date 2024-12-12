@@ -1,16 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MdArrowDownward, MdArrowUpward } from "react-icons/md";
+import { MdArrowUpward } from "react-icons/md";
 import { guestlist } from "../../../public/guest";
 import Countdown from "../components/Countdown";
 
 type tParams = Promise<{ id: string }>;
 
-export default async function Home(props: { params: tParams }) {
+export async function generateMetadata(props: { params: tParams }) {
+  // read route params
+
   const { id } = await props.params;
   const guestID = id;
   const guest = guestlist.find((guest) => guestID === guest.id);
 
+  return {
+    title: `Your Table Number is ${guest?.table}`,
+    description: `Majlis Perkahwinan Anwar & Puteri`,
+  };
+}
+
+export default async function Home(props: { params: tParams }) {
+  const { id } = await props.params;
+  const guestID = id;
+  const guest = guestlist.find((guest) => guestID === guest.id);
+  const family = guestlist.filter((g) => guest?.phone === g.phone);
+  const allName = family
+    .map((y) => y.name)
+    .filter((name, index, self) => name && self.indexOf(name) === index) // Exclude duplicates and empty names
+    .reduce((acc, name, index, array) => {
+      if (index === 0) return name; // First name
+      if (index === array.length - 1) return `${acc} & ${name}`; // Last name
+      return `${acc}, ${name}`; // Intermediate names
+    }, "");
   const table_no = guest?.table;
 
   return (
@@ -31,7 +52,7 @@ export default async function Home(props: { params: tParams }) {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             />
           </div>
-          <div className="flex flex-col gap-5 items-center w-full justify-center pt-36 pb-24">
+          <div className="flex flex-col gap-5 items-center w-full justify-center py-36 ">
             <div className="flex flex-col items-center justify-center  text-center">
               <div className="text-sm max-w-64">
                 <p>Assalamualaikum dan Salam Sejahtera</p>
@@ -40,12 +61,12 @@ export default async function Home(props: { params: tParams }) {
                   / Datin / Tuan / Puan
                 </p>
                 <h4 className="font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] rounded-lg text-white text-sm">
-                  {guest?.name}
+                  {allName}{" "}
+                  {family.length > 1 ? "(" + family.length + "pax)" : ""}
                 </h4>
               </div>
             </div>
             <TableNumber table_no={table_no} />
-            <MdArrowDownward className="text-4xl" />
           </div>
         </div>
         <div className="w-full relative aspect-square">
