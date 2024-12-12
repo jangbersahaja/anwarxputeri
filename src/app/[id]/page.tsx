@@ -48,22 +48,6 @@ export default async function Home(props: { params: tParams }) {
   return (
     <div className="w-full bg-white">
       <main className="flex flex-col items-center justify-center w-full bg-gradient-to-r from-[#F9DD7E]/30 via-[#97753E]/10 to-[#F9DD7E]/30">
-        <div className="fixed bottom-0 left-0 z-10 w-full flex justify-evenly gap-2">
-          <Link
-            className="shadow-lg text-white font-bold px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] w-1/2 h-12 flex items-center justify-center"
-            href={`https://maps.app.goo.gl/HHrVUE2Sxr382LX1A`}
-            target="_blank"
-          >
-            Google Map
-          </Link>
-          <Link
-            className="shadow-lg text-white font-bold px-5 py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] w-1/2 h-12 flex items-center justify-center"
-            href={`https://ul.waze.com/ul?preview_venue_id=66650142.666566961.327044&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location`}
-            target="_blank"
-          >
-            Waze
-          </Link>
-        </div>
         <div className="flex relative h-full w-full items-center">
           <div className="flex absolute w-full h-full">
             <Image
@@ -80,33 +64,54 @@ export default async function Home(props: { params: tParams }) {
             />
           </div>
           <div className="flex flex-col gap-5 items-center w-full justify-center py-36 ">
-            <div className="flex flex-col items-center justify-center  text-center">
-              <div className="text-sm max-w-64">
-                <p>Assalamualaikum dan Salam Sejahtera</p>
-                <p className="text-[12px]">
+            <div className="flex flex-col items-center justify-center text-center">
+              <div className="text-sm font-[family-name:var(--font-cinzel)]">
+                <p className="text-[12px] font-bold">
+                  Assalamualaikum & Salam Sejahtera
+                </p>
+                <p className="text-[12px] max-w-64 ">
                   YAM / YM / Tan Sri / Puan Sri / Dato’ Sri / Datin Sri / Dato’
                   / Datin / Tuan / Puan
                 </p>
-                <h4 className="font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] rounded-lg text-white text-sm">
-                  {allName}{" "}
-                  {family.length > 1 ? "(" + family.length + "pax)" : ""}
+                <h4 className=" max-w-72  font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] rounded-lg text-white text-sm ">
+                  {allName}
+                </h4>
+                <h4 className="mt-2">
+                  {family.length > 1 ? "(" + family.length + " Pax)" : ""}
                 </h4>
               </div>
             </div>
             <TableNumber table_no={table_no} />
           </div>
         </div>
-        <div className="p-10 flex flex-col gap-3 items-center justify-center">
-          <span className="shadow-lg text-white font-bold text-lg rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E]">
+        <div className="p-10 flex text-center flex-col gap-3 items-center justify-center  font-[family-name:var(--font-cinzel)]">
+          <span className="text-[#97753E]  font-bold ">
+            *Pendaftaran Bermula Jam 6.30 Petang*
+          </span>
+          <span className="shadow-xl text-white font-bold text-lg rounded-md w-full text-center py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E]">
             Tarikh: 14 Disember 2024 (Sabtu)
           </span>
-          <span className="font-bold text-xl text-center text-[#97753E] ">
+          <span className="font-bold text-2xl text-center text-[#97753E] ">
             Palace of The Golden Horses,<br></br> Seri Kembangan
           </span>
-          <span className="shadow-lg text-[#97753E]  font-bold text-sm rounded-md px-3 py-2 border-[#97753E] border-2">
-            Pendaftaran Bermula Jam 6.30 Petang
-          </span>
-          <span className="shadow-lg text-[#97753E]  font-bold text-sm rounded-md px-3 py-2 border-[#97753E] border-2 text-center">
+          <div className="flex justify-evenly gap-2 w-full">
+            <Link
+              className="shadow-lg text-sm text-white font-bold py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] w-1/2 rounded-md flex items-center justify-center"
+              href={`https://maps.app.goo.gl/HHrVUE2Sxr382LX1A`}
+              target="_blank"
+            >
+              Google Map
+            </Link>
+            <Link
+              className="shadow-lg text-sm text-white font-bold py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] w-1/2 rounded-md flex items-center justify-center"
+              href={`https://ul.waze.com/ul?preview_venue_id=66650142.666566961.327044&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location`}
+              target="_blank"
+            >
+              Waze
+            </Link>
+          </div>
+
+          <span className="shadow-lg text-[#97753E] w-full font-bold rounded-md py-2 border-[#97753E] border-2 text-center">
             Tema Pakaian:
             <br />
             Baju Melayu/ Batik & Baju Kurung
@@ -136,7 +141,7 @@ export default async function Home(props: { params: tParams }) {
               height={150}
             />
             <Link
-              className="shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E]"
+              className="shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E]  font-[family-name:var(--font-cinzel)]"
               href={`https://jdinvite.com/anwar-puteri/ `}
             >
               KLIK UNTUK BUKA E-KAD
@@ -216,7 +221,9 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 
   return (
     <div className="flex items-center flex-col h-full w-full gap-10 pt-36 pb-44 px-3">
-      <h3 className="text-[#BE9946] font-bold">PELAN MAJLIS</h3>
+      <h3 className="text-[#BE9946] font-bold text-3xl font-[family-name:var(--font-cinzel)]">
+        PELAN MAJLIS
+      </h3>
       <div className="border-t border-b border-[#BE9946] w-full h-1" />
       <div className="px-3 py-3 flex items-center justify-center bg-pink-300 border-black border">
         <p className="font-bold text-[10px]">PELAMIN STAGE</p>
@@ -271,7 +278,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 };
 
 const TableNumber = ({ table_no }: { table_no?: string }) => (
-  <div className="w-full flex justify-center items-center flex-col">
+  <div className="w-full flex justify-center items-center flex-col  font-[family-name:var(--font-cinzel)]">
     <p className="text-sm">Nomber Meja:</p>
     <div className="text-sm flex items-center flex-col gap-2 ">
       <Image
@@ -295,7 +302,7 @@ const TableNumber = ({ table_no }: { table_no?: string }) => (
       </div>
     </div>
     <div className="text-xs">
-      <p>Sila rujuk pelan majlis di bawah bagi melihat susunan meja</p>
+      <p>Sila rujuk pelan majlis di bawah</p>
     </div>
   </div>
 );
