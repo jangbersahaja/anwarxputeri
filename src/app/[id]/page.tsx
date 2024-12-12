@@ -19,6 +19,13 @@ export async function generateMetadata(props: { params: tParams }) {
     openGraph: {
       title: `Your Table Number is ${guest?.table}`,
       description: `Majlis Perkahwinan Anwar & Puteri`,
+      images: [
+        {
+          url: "/crest.png",
+          width: 150,
+          height: 150,
+        },
+      ],
     },
   };
 }
