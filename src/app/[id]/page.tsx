@@ -16,6 +16,10 @@ export async function generateMetadata(props: { params: tParams }) {
   return {
     title: `Your Table Number is ${guest?.table}`,
     description: `Majlis Perkahwinan Anwar & Puteri`,
+    openGraph: {
+      title: `Your Table Number is ${guest?.table}`,
+      description: `Majlis Perkahwinan Anwar & Puteri`,
+    },
   };
 }
 
