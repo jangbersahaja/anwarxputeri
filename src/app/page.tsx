@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGlobe } from "react-icons/fa";
 import { IoIosLink, IoLogoWhatsapp } from "react-icons/io";
-import { filteredGuestList, guestlist } from "../../public/guest";
+import { filteredGuestList, guestlist, tableLabel } from "../../public/guest";
 
 export default function Home() {
   return (
@@ -43,16 +43,25 @@ const GuestListGroupedByTable: React.FC = () => {
       {Object.entries(groupedGuests).map(([table, guests]) => {
         let i = 0;
         const countGuest = guests.filter((g) => g.table === table);
+        const label = tableLabel.find((g) => g.table === table);
         return (
           <div
             key={table}
             className="p-4 border rounded-lg shadow-md bg-slate-100"
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-lg font-bold">Table {table}</h2>
-              <span>{countGuest.length} pax</span>
+              <div className="flex flex-col">
+                <h2 className="text-lg font-bold">Table {table}</h2>
+                <span className="text-sm">
+                  {Number(table) <= 36 ? "Left Wing" : "Right Wing"}
+                </span>
+              </div>
+              <div className="flex flex-col items-end">
+                <h2 className="text-lg font-bold">{label?.name}</h2>
+                <span className="text-sm">{countGuest.length} pax</span>
+              </div>
             </div>
-            <div className="pl-5 flex flex-col justify-end">
+            <div className="flex flex-col justify-end">
               {(() => {
                 const prevGuest = { id: "", name: "", phone: "", table: "" }; // Variable to store the last processed phone number
                 return guests.map((guest) => {
@@ -84,7 +93,7 @@ const GuestListGroupedByTable: React.FC = () => {
                       <div className="flex gap-2">
                         <span className="w-6 flex justify-center">{i} </span>
 
-                        {!isDuplicate || !guest.phone ? (
+                        {!isDuplicate || guest.phone === "na" ? (
                           <>
                             <span>-</span>
                             <span>{guest.name}</span>

@@ -431,11 +431,118 @@ export const guestlist = [
   { id: "69D", name: "Noordalila", phone: "0133611418", table: "69" },
   { id: "69E", name: "Dato Fadzli Orange", phone: "0193389492", table: "69" },
   { id: "69F", name: "Pasangan", phone: "0193389492", table: "69" },
-  { id: "69G", name: "Hasrul Fahmizan", phone: "0105581238", table: "69" },
-  { id: "69H", name: "Anis Diana", phone: "0105581238", table: "69" },
-  { id: "69I", name: "Keluarga", phone: "0105581238", table: "69" },
+  { id: "69G", name: "", phone: "", table: "69" },
+  { id: "69H", name: "", phone: "", table: "69" },
+  { id: "69I", name: "", phone: "", table: "69" },
   { id: "69J", name: "", phone: "", table: "69" },
   { id: "69K", name: "", phone: "", table: "69" },
 ];
 
 export const filteredGuestList = guestlist.filter((g) => g.name != "");
+
+export const tableLabel = [
+  {
+    name: "Guest 1",
+    table: "27",
+  },
+  {
+    name: "Guest 2",
+    table: "28",
+  },
+  {
+    name: "Guest 3",
+    table: "29",
+  },
+  {
+    name: "Guest 4",
+    table: "30",
+  },
+  {
+    name: "Guest 5",
+    table: "31",
+  },
+  {
+    name: "Guest 6",
+    table: "32",
+  },
+  {
+    name: "VVIP PR1MA",
+    table: "53",
+  },
+  {
+    name: "VVIP PR1MA",
+    table: "52",
+  },
+  {
+    name: "PR1MA",
+    table: "51",
+  },
+  {
+    name: "PR1MA",
+    table: "50",
+  },
+  {
+    name: "PR1MA",
+    table: "54",
+  },
+  {
+    name: "PR1MA",
+    table: "55",
+  },
+  {
+    name: "PR1MA",
+    table: "56",
+  },
+  {
+    name: "PR1MA",
+    table: "57",
+  },
+  {
+    name: "PR1MA",
+    table: "58",
+  },
+  {
+    name: "PR1MA",
+    table: "59",
+  },
+  {
+    name: "Corporate Affairs",
+    table: "65",
+  },
+  {
+    name: "Corporate Affairs",
+    table: "64",
+  },
+  {
+    name: "PR1MA",
+    table: "63",
+  },
+  {
+    name: "PR1MA",
+    table: "62",
+  },
+  {
+    name: "PR1MA & Guest",
+    table: "61",
+  },
+  {
+    name: "PR1MA PILOT",
+    table: "60",
+  },
+  {
+    name: "PR1MA & Guest",
+    table: "66",
+  },
+  {
+    name: "PR1MA & Guest",
+    table: "67",
+  },
+  {
+    name: "Fantasy FC",
+    table: "68",
+  },
+  {
+    name: "Guest",
+    table: "69",
+  },
+];
