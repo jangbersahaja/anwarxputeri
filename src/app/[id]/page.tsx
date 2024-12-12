@@ -34,7 +34,9 @@ export default async function Home(props: { params: tParams }) {
   const { id } = await props.params;
   const guestID = id;
   const guest = guestlist.find((guest) => guestID === guest.id);
-  const family = guestlist.filter((g) => guest?.phone === g.phone);
+  const family = guestlist.filter(
+    (g) => guest?.phone === g.phone && guest.table === g.table
+  );
   const allName = family
     .map((y) => y.name)
     .filter((name, index, self) => name && self.indexOf(name) === index) // Exclude duplicates and empty names
@@ -63,7 +65,7 @@ export default async function Home(props: { params: tParams }) {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             />
           </div>
-          <div className="flex flex-col gap-5 items-center w-full justify-center py-36 ">
+          <div className="flex flex-col gap-5 items-center w-full justify-center py-36 z-10">
             <div className="flex flex-col items-center justify-center text-center">
               <div className="text-sm font-[family-name:var(--font-cinzel)]">
                 <p className="text-[12px] font-bold">
