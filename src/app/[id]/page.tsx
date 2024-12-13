@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IoArrowDown, IoArrowUp } from "react-icons/io5";
 import { MdArrowUpward } from "react-icons/md";
 import { guestlist } from "../../../public/guest";
 import Countdown from "../components/Countdown";
@@ -174,19 +175,19 @@ export default async function Home(props: { params: tParams }) {
 }
 
 const WingTables = ({ table_no }: { table_no?: string }) => {
-  // Total elements in the Right Wing Table
   const elementsPerRow = 6; // Number of elements per row
 
-  // Function to create rows of elements
+  // Function to create rows of elements with specific alignment and ordering
   const createRows = (
     start: number,
     end: number,
-    alignLastRow: "center" | "end" | "between"
+    align: "right" | "center"
   ) => {
     const rows = [];
+    let reverse = false; // Toggle to reverse row order
+
     for (let i = start; i <= end; i += elementsPerRow) {
       const row = [];
-
       for (let j = i; j < i + elementsPerRow && j <= end; j++) {
         row.push(
           <div
@@ -195,22 +196,35 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
               j.toString() === table_no
                 ? "bg-green-500 animate-pulse border-2 border-black"
                 : "bg-slate-200"
-            } size-[20px] flex items-center justify-center  rounded-full border border-black`}
+            } size-[20px] flex items-center justify-center  rounded-full border border-black relative`}
           >
+            {j.toString() === table_no && (
+              <>
+                <IoArrowDown className="absolute -top-4" />
+                <IoArrowUp className="absolute -bottom-4" />
+              </>
+            )}
+
             <p className="text-[8px]">{j}</p>
           </div>
         );
       }
 
-      // Adjust row alignment based on row size and alignment setting
+      // Reverse the order of elements if needed
+      if (reverse) {
+        row.reverse();
+      }
+      reverse = !reverse; // Toggle reverse for the next row
+
+      // Adjust row alignment based on alignment setting
       rows.push(
         <div
           key={`row-${i}`}
-          className={`flex w-full gap-1 mb-4 ${
-            row.length < elementsPerRow
-              ? alignLastRow === "center"
-                ? "justify-center"
-                : "justify-end"
+          className={`flex w-fit gap-1 mb-4 ${
+            align === "center"
+              ? "justify-center"
+              : align === "right"
+              ? "justify-end"
               : "justify-between"
           }`}
         >
@@ -222,17 +236,40 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
   };
 
   return (
-    <div className="flex items-center flex-col h-full w-full gap-10 pt-36 pb-44 px-3">
+    <div className="flex items-center flex-col h-full w-full gap-5 pt-36 pb-[100px] px-3">
       <h3 className="text-[#BE9946] font-bold text-3xl font-[family-name:var(--font-cinzel)]">
         PELAN MAJLIS
       </h3>
       <div className="border-t border-b border-[#BE9946] w-full h-1" />
-      <div className="px-3 py-3 flex items-center justify-center bg-pink-300 border-black border">
-        <p className="font-bold text-[10px]">PELAMIN STAGE</p>
+      <div className="flex justify-between items-center gap-10">
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-[10px] text-center bg-white py-0 my-0 border items-center justify-center border-black w-full">
+            LED SCREEN
+          </span>
+          <span className="font-bold text-[10px] w-20 py-3 flex items-center justify-center bg-emerald-300 border-black border">
+            PIANO
+          </span>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-[10px] text-center w-20 bg-white py-0 my-0 border items-center justify-center border-black">
+            LED SCREEN
+          </span>
+          <span className="font-bold text-[10px] px-2 py-3 flex items-center justify-center bg-pink-300 border-black border">
+            PELAMIN STAGE
+          </span>
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-[10px] text-center bg-white py-0 my-0 border items-center justify-center border-black w-full">
+            LED SCREEN
+          </span>
+          <span className="font-bold text-[10px] w-20 py-3 flex items-center justify-center bg-emerald-300 border-black border">
+            BAND
+          </span>
+        </div>
       </div>
 
-      <div className="flex items-center justify-center w-10 h-10 bg-orange-400 rounded-full border-black border">
-        <p className="text-[10px] font-bold">VVIP</p>
+      <div className="flex items-center justify-center w-12 h-12 bg-orange-400 rounded-full border-black border">
+        <p className="text-[10px] font-bold text-center">MAIN TABLE</p>
       </div>
 
       <div className="flex w-full gap-3 h-full">
@@ -243,8 +280,10 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
         </div>
 
         {/* Left Wing Table */}
-        <div className=" w-1/2 flex-col">
-          <div className="flex flex-col w-full">{createRows(1, 35, "end")}</div>
+        <div className=" w-1/2 flex-col flex ">
+          <div className="flex flex-col w-full items-center">
+            {createRows(1, 35, "right")}
+          </div>
           <div className="w-full bg-yellow-300 h-8 flex items-center justify-center border-black border">
             <p className="text-center font-bold text-[10px]">LEFT WING</p>
           </div>
@@ -260,8 +299,8 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
         </div>
 
         {/* Right Wing Table */}
-        <div className="w-1/2 flex-col">
-          <div className="flex flex-col w-full">
+        <div className=" w-1/2 flex-col flex ">
+          <div className="flex flex-col w-full items-center">
             {createRows(36, 69, "center")}
           </div>
           <div className="w-full bg-yellow-300 h-8 flex items-center justify-center border-black border">
@@ -274,7 +313,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           </p>
         </div>
       </div>
-      <div className="border-t border-b border-[#BE9946] w-full h-1" />
+      <div className="border-t border-b border-[#BE9946] w-full h-1 mt-10" />
     </div>
   );
 };
