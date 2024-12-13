@@ -17,6 +17,13 @@ export default function Home() {
             height={150}
           />
         </div>
+
+        <h1 className="text-lg text-gray-900">
+          Total RSVP: {filteredGuestList.length} Pax
+        </h1>
+        <div className="w-full flex justify-center">
+          <WingTables />
+        </div>
         <h1 className="text-2xl font-bold text-gray-900">Guest List</h1>
         <div className="w-full flex flex-col gap-2">
           <GuestListGroupedByTable />
@@ -25,6 +32,96 @@ export default function Home() {
     </div>
   );
 }
+
+const WingTables = () => {
+  const elementsPerRow = 6; // Number of elements per row
+  const totalLeftElements = 35; // Total elements in the Left Wing Table
+
+  // Function to create rows of elements with specific alignment and ordering
+  const createRows = (
+    start: number,
+    end: number,
+    align: "right" | "center",
+    reverseRows: number[] = []
+  ) => {
+    const rows = [];
+    for (let i = start; i <= end; i += elementsPerRow) {
+      const row = [];
+      for (let j = i; j < i + elementsPerRow && j <= end; j++) {
+        const guestCount = filteredGuestList.filter(
+          (g) => g.table === j.toString()
+        );
+        row.push(
+          <div
+            key={j}
+            className={`${
+              guestCount.length >= 10
+                ? "bg-yellow-300"
+                : guestCount.length >= 1
+                ? "bg-yellow-100"
+                : "bg-slate-200"
+            } size-12 flex items-center justify-center rounded-full border border-black relative`}
+          >
+            <div className="flex flex-col justify-center items-center">
+              <p className="text-[10px] text-center">{j}</p>
+              <p className={` text-[10px] text-center`}>
+                {guestCount.length} Pax
+              </p>
+            </div>
+          </div>
+        );
+      }
+
+      // Reverse the order for specified rows
+      if (reverseRows.includes(rows.length + 1)) {
+        row.reverse();
+      }
+
+      // Adjust row alignment based on alignment setting
+      rows.push(
+        <div
+          key={`row-${i}`}
+          className={`flex w-fit gap-2 mb-4 ${
+            align === "center"
+              ? "justify-center"
+              : align === "right"
+              ? "justify-end"
+              : "justify-between"
+          }`}
+        >
+          {row}
+        </div>
+      );
+    }
+    return rows;
+  };
+
+  return (
+    <div className="flex items-center justify-center flex-col w-full gap-10 pb-10">
+      {/* Left Wing Table */}
+      <div className=" w-1/2 flex-col flex ">
+        <div className="flex flex-col w-full items-center justify-center">
+          <div className="flex flex-col items-end">
+            {createRows(1, totalLeftElements, "right", [2, 4, 6])}
+          </div>
+        </div>
+        <div className="w-full bg-red-300 h-7 flex items-center justify-center border-black border">
+          <p className="text-center font-bold text-[10px]">LEFT WING</p>
+        </div>
+      </div>
+
+      {/* Right Wing Table */}
+      <div className=" w-1/2 flex-col flex ">
+        <div className="flex flex-col w-full items-center justify-center">
+          {createRows(36, 69, "center", [3, 5])}
+        </div>
+        <div className="w-full bg-red-300 h-7 flex items-center justify-center border-black border">
+          <p className="text-center font-bold text-[10px]">RIGHT WING</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const GuestListGroupedByTable: React.FC = () => {
   // Group guests by table
@@ -58,7 +155,7 @@ const GuestListGroupedByTable: React.FC = () => {
               </div>
               <div className="flex flex-col items-end">
                 <h2 className="text-lg font-bold">{label?.name}</h2>
-                <span className="text-sm">{countGuest.length} pax</span>
+                <span className="text-sm">{countGuest.length} Pax</span>
               </div>
             </div>
             <div className="flex flex-col justify-end">

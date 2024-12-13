@@ -75,7 +75,7 @@ export default async function Home(props: { params: tParams }) {
                 YAM / YM / Tan Sri / Puan Sri / Dato’ Sri / Datin Sri / Dato’ /
                 Datin / Tuan / Puan
               </p>
-              <h4 className=" max-w-72  font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] rounded-lg text-white text-sm ">
+              <h4 className="max-w-72 w-full font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] rounded-lg text-white text-sm">
                 {allName}
               </h4>
               <h4 className="mt-2">
