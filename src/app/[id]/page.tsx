@@ -67,22 +67,20 @@ export default async function Home(props: { params: tParams }) {
             />
           </div>
           <div className="flex flex-col gap-5 items-center w-full justify-center py-36 z-10">
-            <div className="flex flex-col items-center justify-center text-center">
-              <div className="text-sm font-[family-name:var(--font-cinzel)]">
-                <p className="text-[12px] font-bold">
-                  Assalamualaikum & Salam Sejahtera
-                </p>
-                <p className="text-[12px] max-w-64 ">
-                  YAM / YM / Tan Sri / Puan Sri / Dato’ Sri / Datin Sri / Dato’
-                  / Datin / Tuan / Puan
-                </p>
-                <h4 className=" max-w-72  font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] rounded-lg text-white text-sm ">
-                  {allName}
-                </h4>
-                <h4 className="mt-2">
-                  {family.length > 1 ? "(" + family.length + " Pax)" : ""}
-                </h4>
-              </div>
+            <div className="flex flex-col items-center justify-center text-center text-sm font-[family-name:var(--font-cinzel)]">
+              <p className="text-[12px] font-bold">
+                Assalamualaikum & Salam Sejahtera
+              </p>
+              <p className="text-[12px] max-w-64 ">
+                YAM / YM / Tan Sri / Puan Sri / Dato’ Sri / Datin Sri / Dato’ /
+                Datin / Tuan / Puan
+              </p>
+              <h4 className=" max-w-72  font-bold mt-3 px-2 py-1 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E] rounded-lg text-white text-sm ">
+                {allName}
+              </h4>
+              <h4 className="mt-2">
+                {family.length > 1 ? "(" + family.length + " Pax)" : ""}
+              </h4>
             </div>
             <TableNumber table_no={table_no} />
           </div>
@@ -176,16 +174,17 @@ export default async function Home(props: { params: tParams }) {
 
 const WingTables = ({ table_no }: { table_no?: string }) => {
   const elementsPerRow = 6; // Number of elements per row
+  const totalLeftElements = 35; // Total elements in the Left Wing Table
+  const totalRightElements = 34; // Total elements in the Right Wing Table
 
   // Function to create rows of elements with specific alignment and ordering
   const createRows = (
     start: number,
     end: number,
-    align: "right" | "center"
+    align: "right" | "center",
+    reverseRows: number[] = []
   ) => {
     const rows = [];
-    let reverse = false; // Toggle to reverse row order
-
     for (let i = start; i <= end; i += elementsPerRow) {
       const row = [];
       for (let j = i; j < i + elementsPerRow && j <= end; j++) {
@@ -210,11 +209,10 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
         );
       }
 
-      // Reverse the order of elements if needed
-      if (reverse) {
+      // Reverse the order for specified rows
+      if (reverseRows.includes(rows.length + 1)) {
         row.reverse();
       }
-      reverse = !reverse; // Toggle reverse for the next row
 
       // Adjust row alignment based on alignment setting
       rows.push(
@@ -282,8 +280,10 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 
         {/* Left Wing Table */}
         <div className=" w-1/2 flex-col flex ">
-          <div className="flex flex-col w-full items-center">
-            {createRows(1, 35, "right")}
+          <div className="flex flex-col w-full items-center justify-center">
+            <div className="flex flex-col items-end">
+              {createRows(1, totalLeftElements, "right", [2, 4, 6])}
+            </div>
           </div>
           <div className="w-full bg-red-300 h-7 flex items-center justify-center border-black border">
             <p className="text-center font-bold text-[10px]">LEFT WING</p>
@@ -301,8 +301,8 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 
         {/* Right Wing Table */}
         <div className=" w-1/2 flex-col flex ">
-          <div className="flex flex-col w-full items-center">
-            {createRows(36, 69, "center")}
+          <div className="flex flex-col w-full items-center justify-center">
+            {createRows(36, 69, "center", [3, 5])}
           </div>
           <div className="w-full bg-red-300 h-7 flex items-center justify-center border-black border">
             <p className="text-center font-bold text-[10px]">RIGHT WING</p>
