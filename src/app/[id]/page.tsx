@@ -175,7 +175,6 @@ export default async function Home(props: { params: tParams }) {
 const WingTables = ({ table_no }: { table_no?: string }) => {
   const elementsPerRow = 6; // Number of elements per row
   const totalLeftElements = 35; // Total elements in the Left Wing Table
-  const totalRightElements = 34; // Total elements in the Right Wing Table
 
   // Function to create rows of elements with specific alignment and ordering
   const createRows = (
