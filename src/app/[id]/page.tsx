@@ -89,12 +89,12 @@ export default async function Home(props: { params: tParams }) {
         </div>
         <div className="p-10 flex text-center flex-col gap-3 items-center justify-center  font-[family-name:var(--font-cinzel)]">
           <span className="text-[#97753E]  font-bold ">
-            *Pendaftaran Bermula Jam 6.30 Petang*
+            *Registration Starts From 6.30 P.M.*
           </span>
-          <span className="shadow-xl text-white font-bold text-lg rounded-md w-full text-center py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E]">
-            Tarikh: 14 Disember 2024 (Sabtu)
+          <span className="shadow-xl text-white font-bold rounded-md w-full text-center py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E]">
+            Date: 14 December 2024 (Saturday)
           </span>
-          <span className="font-bold text-2xl text-center text-[#97753E] ">
+          <span className="font-bold text-xl text-center text-[#97753E] ">
             Palace of The Golden Horses,<br></br> Seri Kembangan
           </span>
           <div className="flex justify-evenly gap-2 w-full">
@@ -115,7 +115,7 @@ export default async function Home(props: { params: tParams }) {
           </div>
 
           <span className="shadow-lg text-[#97753E] w-full font-bold rounded-md py-2 border-[#97753E] border-2 text-center">
-            Tema Pakaian:
+            Dress Code:
             <br />
             Baju Melayu/ Batik & Baju Kurung
           </span>
@@ -147,7 +147,7 @@ export default async function Home(props: { params: tParams }) {
               className="shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E]  font-[family-name:var(--font-cinzel)]"
               href={`https://jdinvite.com/anwar-puteri/ `}
             >
-              KLIK UNTUK BUKA E-KAD
+              CLICK TO OPEN E-KAD
             </Link>
           </div>
         </div>
@@ -238,7 +238,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
   return (
     <div className="flex items-center flex-col h-full w-full gap-5 pt-36 pb-[100px] px-3">
       <h3 className="text-[#BE9946] font-bold text-3xl font-[family-name:var(--font-cinzel)]">
-        PELAN MAJLIS
+        EVENT LAYOUT
       </h3>
       <div className="border-t border-b border-[#BE9946] w-full h-1" />
       <div className="flex justify-between items-center gap-10">
@@ -320,7 +320,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 
 const TableNumber = ({ table_no }: { table_no?: string }) => (
   <div className="w-full flex justify-center items-center flex-col  font-[family-name:var(--font-cinzel)]">
-    <p className="text-sm">Nomber Meja:</p>
+    <p className="text-sm">Table No:</p>
     <div className="text-sm flex items-center flex-col gap-2 ">
       <Image
         className=""
@@ -343,7 +343,7 @@ const TableNumber = ({ table_no }: { table_no?: string }) => (
       </div>
     </div>
     <div className="text-xs">
-      <p>Sila rujuk pelan majlis di bawah</p>
+      <p>Refer To Event Layout Below</p>
     </div>
   </div>
 );

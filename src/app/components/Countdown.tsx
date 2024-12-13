@@ -39,27 +39,27 @@ export default function Countdown() {
     <div
       className={`bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] text-white my-auto flex w-[350px] flex-col items-center justify-center rounded-lg py-2 shadow-lg  font-[family-name:var(--font-cinzel)]`}
     >
-      <h3 className="text-center text-sm">Menghitung Hari</h3>
+      <h3 className="text-center text-sm">Countdown</h3>
       <h3 className="pb-1 text-center font-bold">#AnwarPuteRingOnIt</h3>
       <div className="flex items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-center">
           <span className="text-4xl font-bold">{days}</span>
-          <span className="text-xs">Hari</span>
+          <span className="text-xs">Day</span>
         </div>
         <span className="text-3xl">:</span>
         <div className="flex flex-col items-center justify-center">
           <span className="text-4xl font-bold">{hours}</span>
-          <span className="text-xs">Jam</span>
+          <span className="text-xs">Hour</span>
         </div>
         <span className="text-3xl">:</span>
         <div className="flex flex-col items-center justify-center">
           <span className="text-4xl font-bold">{minutes}</span>
-          <span className="text-xs">Minit</span>
+          <span className="text-xs">Minute</span>
         </div>
         <span className="text-3xl">:</span>
         <div className="flex flex-col items-center justify-center">
           <span className="text-4xl font-bold">{seconds}</span>
-          <span className="text-xs">Saat</span>
+          <span className="text-xs">Second</span>
         </div>
       </div>
     </div>
