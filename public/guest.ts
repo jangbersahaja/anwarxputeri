@@ -824,7 +824,7 @@ export const guestlist = [
   { id: "45G", name: "Buffer 8 pax standby", phone: "na", table: "45" },
   { id: "45H", name: "Buffer 8 pax standby", phone: "na", table: "45" },
   { id: "45I", name: "Buffer 8 pax standby", phone: "na", table: "45" },
-  { id: "45J", name: "", phone: "", table: "45" },
+  { id: "45J", name: "Buffer 8 pax standby", phone: "na", table: "45" },
   { id: "45K", name: "", phone: "", table: "45" },
   { id: "40A", name: "NorAdzmin Mat Idris", phone: "0192797886 ", table: "40" },
   { id: "40B", name: "NorAdzmin Mat Idris", phone: "0192797886 ", table: "40" },
