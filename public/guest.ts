@@ -487,12 +487,7 @@ export const guestlist = [
   { id: "13F", name: "Spouse", phone: "0126226434", table: "13" },
   { id: "13G", name: "Tengku Muhd Solihhe", phone: "0182526969", table: "13" },
   { id: "13H", name: "Spouse", phone: "0182526969", table: "13" },
-  {
-    id: "13I",
-    name: "Amir Hamzah And isteri",
-    phone: "0123351122",
-    table: "13",
-  },
+  { id: "13I", name: "Amir Hamzah", phone: "0123351122", table: "13" },
   { id: "13J", name: "Spouse", phone: "0123351122", table: "13" },
   { id: "13K", name: "", phone: "", table: "13" },
   { id: "2A", name: "Ezanee Zakaria ", phone: "0199807938", table: "2" },
