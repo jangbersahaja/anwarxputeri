@@ -142,7 +142,7 @@ export default async function Home(props: { params: tParams }) {
               height={150}
             />
             <Link
-              className="shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E]  font-[family-name:var(--font-cinzel)]"
+              className="flex items-center justify-center shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] font-[family-name:var(--font-cinzel)]"
               href={`https://jdinvite.com/anwar-puteri/ `}
             >
               CLICK TO OPEN E-KAD
@@ -244,7 +244,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           <span className="text-[10px] text-center bg-white py-0 my-0 border items-center justify-center border-black w-full">
             LED SCREEN
           </span>
-          <span className="font-bold text-[10px] w-20 py-3 flex items-center justify-center bg-emerald-300 border-black border">
+          <span className="font-bold text-[10px] w-20 py-3 flex items-center justify-center bg-emerald-300 border-black border text-center">
             PIANO
           </span>
         </div>
@@ -252,7 +252,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           <span className="text-[10px] text-center w-20 bg-white py-0 my-0 border items-center justify-center border-black">
             LED SCREEN
           </span>
-          <span className="font-bold text-[10px] px-2 py-3 flex items-center justify-center bg-pink-300 border-black border">
+          <span className="font-bold text-[10px] px-2 py-3 flex items-center justify-center bg-pink-300 border-black border text-center">
             PELAMIN STAGE
           </span>
         </div>
@@ -260,7 +260,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           <span className="text-[10px] text-center bg-white py-0 my-0 border items-center justify-center border-black w-full">
             LED SCREEN
           </span>
-          <span className="font-bold text-[10px] w-20 py-3 flex items-center justify-center bg-emerald-300 border-black border">
+          <span className="font-bold text-[10px] w-20 py-3 flex items-center justify-center bg-emerald-300 border-black border text-center">
             BAND
           </span>
         </div>
@@ -320,7 +320,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 
 const TableNumber = ({ table_no }: { table_no?: string }) => (
   <div className="w-full flex justify-center items-center flex-col  font-[family-name:var(--font-cinzel)]">
-    <p className="text-sm">Table No:</p>
+    <p className="text-sm text-center">Table No:</p>
     <div className="text-sm flex items-center flex-col gap-2 ">
       <Image
         className=""
@@ -330,19 +330,21 @@ const TableNumber = ({ table_no }: { table_no?: string }) => (
         height={150}
       />
       <div className="absolute h-[150px] justify-center flex flex-col items-center">
-        <h1 className="font-bold text-6xl text-[#B58D4F]">{table_no}</h1>
+        <h1 className="font-bold text-6xl text-[#B58D4F] text-center">
+          {table_no}
+        </h1>
         {Number(table_no) <= 35 ? (
-          <div className="text-xs">
+          <div className="text-xs text-center">
             <p>LEFT WING</p>
           </div>
         ) : (
-          <div className="text-xs">
+          <div className="text-xs text-center">
             <p>RIGHT WING</p>
           </div>
         )}
       </div>
     </div>
-    <div className="text-xs">
+    <div className="text-xs text-center">
       <p>Refer To Event Layout Below</p>
     </div>
   </div>
