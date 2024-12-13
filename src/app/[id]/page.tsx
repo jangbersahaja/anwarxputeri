@@ -15,10 +15,10 @@ export async function generateMetadata(props: { params: tParams }) {
   const guest = guestlist.find((guest) => guestID === guest.id);
 
   return {
-    title: `Your Table Number is ${guest?.table}`,
+    title: `Your Table Number : ${guest?.table}`,
     description: `Majlis Perkahwinan Anwar & Puteri`,
     openGraph: {
-      title: `Your Table Number is ${guest?.table}`,
+      title: `Your Table Number : ${guest?.table}`,
       description: `Majlis Perkahwinan Anwar & Puteri`,
       images: [
         {
