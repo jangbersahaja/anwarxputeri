@@ -37,7 +37,7 @@ export default function Countdown() {
 
   return (
     <div
-      className={`bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] text-white my-auto flex w-[350px] flex-col items-center justify-center rounded-lg py-2 shadow-lg  font-[family-name:var(--font-cinzel)]`}
+      className={`bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] text-white my-auto flex w-[350px] flex-col items-center justify-center rounded-b-lg py-2 shadow-lg  font-[family-name:var(--font-cinzel)]`}
     >
       <h3 className="text-center text-sm">Countdown</h3>
       <h3 className="pb-1 text-center font-bold">#AnwarPuteRingOnIt</h3>

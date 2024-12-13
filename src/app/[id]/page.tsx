@@ -114,14 +114,14 @@ export default async function Home(props: { params: tParams }) {
             </Link>
           </div>
 
-          <span className="shadow-lg text-[#97753E] w-full font-bold rounded-md py-2 border-[#97753E] border-2 text-center">
+          <span className="shadow-lg text-[#97753E] w-full font-bold rounded-md py-2 border-[#97753E] border-2 text-center bg-white/30 backdrop-blur-lg">
             Dress Code:
             <br />
             Baju Melayu/ Batik & Baju Kurung
           </span>
         </div>
 
-        <div className="h-full w-full relative flex justify-center items-center">
+        <div className="h-full w-full relative flex justify-center items-center max-w-md">
           <div className="w-full aspect-square -my-10">
             <Image
               className=""
@@ -151,7 +151,7 @@ export default async function Home(props: { params: tParams }) {
             </Link>
           </div>
         </div>
-        <div className="w-full relative aspect-square">
+        <div className="w-[350px] relative aspect-square backdrop-blur-lg bg-white/30 shadow-lg rounded-t-lg mx-5">
           <Image
             className=""
             src="/name.png"
@@ -196,7 +196,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
               j.toString() === table_no
                 ? "bg-green-500 animate-pulse border-2 border-black"
                 : "bg-slate-200"
-            } size-[20px] flex items-center justify-center  rounded-full border border-black relative`}
+            } size-[20px] flex items-center justify-center rounded-full border border-black relative`}
           >
             {j.toString() === table_no && (
               <>
@@ -236,7 +236,8 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
   };
 
   return (
-    <div className="flex items-center flex-col h-full w-full gap-5 pt-36 pb-[100px] px-3">
+    <div className="flex items-center flex-col h-full w-full gap-5 pt-36 pb-[200px] px-3 max-w-md">
+      <div className="border-t border-b border-[#BE9946] w-full h-1" />
       <h3 className="text-[#BE9946] font-bold text-3xl font-[family-name:var(--font-cinzel)]">
         EVENT LAYOUT
       </h3>
@@ -284,7 +285,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           <div className="flex flex-col w-full items-center">
             {createRows(1, 35, "right")}
           </div>
-          <div className="w-full bg-yellow-300 h-8 flex items-center justify-center border-black border">
+          <div className="w-full bg-red-300 h-7 flex items-center justify-center border-black border">
             <p className="text-center font-bold text-[10px]">LEFT WING</p>
           </div>
         </div>
@@ -303,7 +304,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           <div className="flex flex-col w-full items-center">
             {createRows(36, 69, "center")}
           </div>
-          <div className="w-full bg-yellow-300 h-8 flex items-center justify-center border-black border">
+          <div className="w-full bg-red-300 h-7 flex items-center justify-center border-black border">
             <p className="text-center font-bold text-[10px]">RIGHT WING</p>
           </div>
         </div>
