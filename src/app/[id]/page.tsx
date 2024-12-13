@@ -142,7 +142,7 @@ export default async function Home(props: { params: tParams }) {
               height={150}
             />
             <Link
-              className="flex items-center justify-center shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] font-[family-name:var(--font-cinzel)]"
+              className="flex items-center justify-center text-center shadow-lg text-white font-bold rounded-md px-3 py-2 bg-gradient-to-r from-[#97753E] via-[#F9DD7E] to-[#97753E] font-[family-name:var(--font-cinzel)]"
               href={`https://jdinvite.com/anwar-puteri/ `}
             >
               CLICK TO OPEN E-KAD
@@ -203,7 +203,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
               </>
             )}
 
-            <p className="text-[8px]">{j}</p>
+            <p className="text-[8px] text-center">{j}</p>
           </div>
         );
       }
