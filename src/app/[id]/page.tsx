@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoArrowDown, IoArrowUp } from "react-icons/io5";
-import { MdArrowRight } from "react-icons/md";
 import { guestlist } from "../../../public/guest";
 import Countdown from "../components/Countdown";
 
@@ -92,6 +92,20 @@ export default async function Home(props: { params: tParams }) {
           <span className="shadow-xl text-white font-bold rounded-md w-full text-center py-2 bg-gradient-to-r from-[#97753E] via-[#bda24c] to-[#97753E]">
             Date: 14 December 2024 (Saturday)
           </span>
+          <div className="relative w-full h-[200px] rounded-md shadow-xl overflow-hidden">
+            <Image
+              className=""
+              src="/venue.jpg"
+              alt="Globe icon"
+              fill
+              quality={100}
+              priority
+              style={{
+                objectFit: "cover",
+              }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            />
+          </div>
           <span className="font-bold text-xl text-center text-[#97753E] ">
             Palace of The Golden Horses,<br></br> Seri Kembangan
           </span>
@@ -112,7 +126,7 @@ export default async function Home(props: { params: tParams }) {
             </Link>
           </div>
 
-          <span className="shadow-lg text-[#97753E] w-full font-bold rounded-md py-2 border-[#97753E] border-2 text-center bg-white/30 backdrop-blur-lg">
+          <span className="mt-5 shadow-lg text-[#97753E] w-full font-bold rounded-md py-2 border-[#97753E] border-2 text-center bg-white/30 backdrop-blur-lg">
             Dress Code:
             <br />
             Baju Melayu/ Batik & Baju Kurung
@@ -292,10 +306,10 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
         {/* Entrance */}
         <div className="flex items-end ">
           <div className="flex w-4 h-32 px-1 items-center justify-center bg-yellow-300 border-black border">
-            <span className="text-center font-bold text-[10px] -rotate-90 whitespace-nowrap">
-              ENTRANCE
+            <span className="flex gap-1 text-center font-bold text-[10px] -rotate-90 whitespace-nowrap">
+              <span>ENTRANCE</span>
+              <FaLongArrowAltRight className="text-sm" />
             </span>
-            <MdArrowRight className="text-sm" />
           </div>
         </div>
 
@@ -314,7 +328,7 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
           </p>
         </div>
       </div>
-      <div className="border-t border-b border-[#BE9946] w-full h-1 mt-10" />
+      <div className="border-t border-b border-[#BE9946] w-full h-1" />
     </div>
   );
 };
