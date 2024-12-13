@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoArrowDown, IoArrowUp } from "react-icons/io5";
-import { MdArrowUpward } from "react-icons/md";
+import { MdArrowRight } from "react-icons/md";
 import { guestlist } from "../../../public/guest";
 import Countdown from "../components/Countdown";
 
@@ -271,9 +271,9 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
       </div>
 
       <div className="flex w-full gap-3 h-full">
-        <div className="flex h-fit w-4 px-1 items-center justify-center bg-pink-300 border-black border">
-          <p className="text-center font-bold text-[10px]">
-            B U F F E T L I N E
+        <div className="flex w-4 h-28 px-1 items-center justify-center bg-pink-300 border-black border">
+          <p className="text-center font-bold text-[10px] -rotate-90 whitespace-nowrap">
+            BUFFET LINE
           </p>
         </div>
 
@@ -291,10 +291,11 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
 
         {/* Entrance */}
         <div className="flex items-end ">
-          <div className="flex h-fit w-4 -mb-8 px-1 items-center justify-center bg-yellow-300 border-black border">
-            <p className="text-center font-bold text-[10px] ">
-              <MdArrowUpward className="text-sm" /> E N T R A N C E
-            </p>
+          <div className="flex w-4 h-32 px-1 items-center justify-center bg-yellow-300 border-black border">
+            <span className="text-center font-bold text-[10px] -rotate-90 whitespace-nowrap">
+              ENTRANCE
+            </span>
+            <MdArrowRight className="text-sm" />
           </div>
         </div>
 
@@ -307,9 +308,9 @@ const WingTables = ({ table_no }: { table_no?: string }) => {
             <p className="text-center font-bold text-[10px]">RIGHT WING</p>
           </div>
         </div>
-        <div className="flex h-fit w-4 px-1 items-center justify-center bg-pink-300 border-black border">
-          <p className="text-center font-bold text-[10px]">
-            B U F F E T L I N E
+        <div className="flex w-4 h-28 px-1 items-center justify-center bg-pink-300 border-black border">
+          <p className="text-center font-bold text-[10px] -rotate-90 whitespace-nowrap">
+            BUFFET LINE
           </p>
         </div>
       </div>
