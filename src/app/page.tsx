@@ -165,7 +165,7 @@ const GuestListGroupedByTable: React.FC = () => {
                   i++;
                   const family = guests.filter((g) => guest.phone === g.phone);
                   const allName = family
-                    .map((y) => y.name)
+                    .map((y) => y.name.replace(/&/g, "%20%26%20"))
                     .filter(
                       (name, index, self) =>
                         name && self.indexOf(name) === index
